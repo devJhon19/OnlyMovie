@@ -1,4 +1,5 @@
 # OnlyMovie
+[Home](Images/onlymovie_home.jpg) [Detail](Images/onlymovie_detail.jpg)
 
 ## Definición
 Simple aplicativo sobre películas.
