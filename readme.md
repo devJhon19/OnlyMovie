@@ -1,6 +1,5 @@
 # OnlyMovie
-![Home](Images/onlymovie_home.jpg) ![Detail](Images/onlymovie_detail.jpg)
-<img src="Images/onlymovie_home.jpg" width="300" height="450">
+<img src="Images/onlymovie_home.jpg" width="300" height="450"> <img src="Images/onlymovie_detail.jpg" width="300" height="450">
 
 ## Definición
 Simple aplicativo sobre películas con un listado horizontal.
