@@ -1,19 +1,27 @@
 # OnlyMovie
 
 ## Definición
-Aplicativo sobre películas.
+Simple aplicativo sobre películas.
+
+## Login
+- Username: Admin
+- Password: Password*123
 
 ## Características
 - Login
 - Visualizar películas en cartelera
+- Detalle simple de una película
 
 ## Desarrollo
 - Clean Architecture
 - Kotlin
 - MVVM
-- Dagger
+- Dagger (Falta)
 - Room
+- LiveData
 - Glide
+- Paging
+- Retrofit
 
 ## License
 

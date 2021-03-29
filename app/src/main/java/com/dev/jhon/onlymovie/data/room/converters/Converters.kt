@@ -1,18 +1,14 @@
-package com.innova.libaccessibility.data.room.converters
+package com.dev.jhon.onlymovie.data.room.converters
 
 import android.annotation.SuppressLint
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.room.TypeConverter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import java.text.SimpleDateFormat
-import java.time.Instant
 import java.util.*
 
 @SuppressLint("SimpleDateFormat")
-class TimeConverter {
-//    https://stackoverflow.com/questions/7487460/converting-long-to-date-in-java-returns-1970
-//    https://www.w3resource.com/sqlite/sqlite-strftime.php
-//    SELECT strftime('%H %M %S %s','now');
+class Converters {
     companion object{
         val FORMAT_STRING = "yyyy-MM-dd HH:mm:ss"
     }
@@ -22,15 +18,26 @@ class TimeConverter {
         return parseDate(value)
     }
 
+
     @TypeConverter
     fun dateToString(date: Date): String {
         val simpleDateFormat = SimpleDateFormat(FORMAT_STRING)
         return simpleDateFormat.format(date)
     }
 
-    private fun parseDate(date : String) : Date{
+    private fun parseDate(date : String) : Date {
         val simpleDateFormat = SimpleDateFormat(FORMAT_STRING)
         return simpleDateFormat.parse(date)
     }
 
+    @TypeConverter
+    fun fromString(value: String?): ArrayList<Int?>? {
+        val listType= object : TypeToken<ArrayList<Int?>?>() {}.type
+        return Gson().fromJson(value, listType)
+    }
+
+    @TypeConverter
+    fun fromArrayList(list: ArrayList<Int?>?): String? {
+        return Gson().toJson(list)
+    }
 }

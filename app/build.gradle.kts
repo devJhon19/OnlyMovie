@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-android-extensions")
     kotlin("kapt")
 }
 
@@ -22,6 +23,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", ApiKeys.fieldApiTMDb, ApiKeys.apiTMDb)
+        buildConfigField("String", ApiKeys.fieldUrlImageTMDb, ApiKeys.UrlImageTMDb)
+        buildConfigField("String", ApiKeys.fieldUrlApiTMDb, ApiKeys.UrlApiTMDb)
     }
 
     buildTypes {
@@ -45,12 +48,29 @@ dependencies {
     implementation(Libs.appcompat)
     implementation(Libs.materialElements)
     implementation(Libs.constraint_layout)
-
+    //RETROFIT
+    implementation(Libs.retrofit)
+    implementation(Libs.retrofit_gson)
+    implementation(Libs.retrofit_rxjava2_adapter)
+    //TOAST
+    implementation(Libs.material_toast)
+    //ROOM
     implementation(Libs.roomRuntime)
     kapt(Libs.roomPersistenceCompiler)
     annotationProcessor(Libs.roomCompiler)
-
+    //GLIDE
+    implementation(Libs.glide)
+    annotationProcessor(Libs.glide_annotation_processor)
+    implementation(Libs.gson)
+    //TESTS
     testImplementation(TestLibs.junit)
     androidTestImplementation(TestLibs.ext_junit)
     androidTestImplementation(TestLibs.espresso)
+    //MVVM
+    implementation(Libs.lifecycle_extensions)
+    implementation(Libs.lifecycle_viewmodel_ktx)
+    //PAGING
+    implementation(Libs.paging_runtime)
+    testImplementation(Libs.paging_common) // For Kotlin use paging-common-ktx
+    implementation(Libs.paging_rxjava2) // For Kotlin use paging-rxjava2-ktx
 }
